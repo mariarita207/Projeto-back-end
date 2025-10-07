@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 🌐 Projeto Lootsy
 
 Este é um projeto desenvolvido para a disciplina de **Desenvolvimento Front-End** do curso de **Análise e Desenvolvimento de Sistemas** na **UNISUAM**, sob orientação do professor Charles Bastos.
@@ -63,3 +64,7 @@ Veja o arquivo de "LICENSE" para mais informações.
 
 ---
 
+=======
+# Projeto-back-end
+Projeto back-end 
+>>>>>>> e136cc1349422919c73de8b57c76b958a30c6240
