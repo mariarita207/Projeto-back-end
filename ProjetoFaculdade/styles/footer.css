@@ -1,0 +1,152 @@
+/* Resetando o overflow-x para evitar rolagem horizontal */
+html, body {
+  overflow-x: hidden;
+}
+
+/* Aplica Montserrat no footer e todos os seus filhos */
+footer, 
+footer * {
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+}
+
+.footer {
+  padding: 40px 60px;
+  background-color: #352262;
+  color: white;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 40px;
+  
+}
+
+.institucional {
+  max-width: 800px;
+  
+}
+
+.institucional h2 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.contato-social {
+  text-align: right;
+}
+
+.logo img {
+  width: 220px;
+  margin-bottom: 10px;
+}
+
+.social-icons img {
+  width: 350px;
+  margin-top: 10px;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 40px;
+  border-top: 1px solid #444;
+  padding-top: 20px;
+}
+
+.selos img, .envio img {
+  height: 65px;
+  margin-right: 10px;
+}
+
+.selos h3, .envio h3 {
+  margin-bottom: 10px;
+  font-size: 1em;
+}
+
+.copyright {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 0.8em;
+  color: #ccc;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .footer {
+    padding: 30px 20px;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 30px;
+  }
+
+  .contato-social {
+    text-align: left;
+  }
+
+  .logo img {
+    width: 180px;
+  }
+
+  .social-icons img {
+    width: 100%;
+    max-width: 250px;
+    height: auto;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .selos img,
+  .envio img {
+    height: 50px;
+    margin: 5px 0;
+  }
+
+  .copyright {
+    text-align: left;
+    font-size: 0.75em;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    padding: 20px 15px;
+  }
+
+  .logo img {
+    width: 150px;
+  }
+
+  .social-icons img {
+    max-width: 200px;
+  }
+
+  .selos img,
+  .envio img {
+    height: 40px;
+  }
+
+  .institucional h2 {
+    font-size: 1.2em;
+  }
+
+  .selos h3,
+  .envio h3 {
+    font-size: 0.9em;
+  }
+
+  .copyright {
+    font-size: 0.7em;
+  }
+}
+
