@@ -1,4 +1,4 @@
-<!--- Início do HTML -->
+<!-- Início do HTML -->
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -7,32 +7,32 @@
   <title>Cadastro - Lootsy</title>
   <meta name="description" content="Cadastro de usuário na plataforma Lootsy, onde você pode criar sua conta na nossa plataforma!.">
 
-  <!--- CSS e CSS boostrap -->
+  <!-- CSS e CSS boostrap -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="styles/cadastro.css">
   <link rel="shortcut icon" href="assets/images/imagem_da_logo.png" type="image/x-icon">
 
-  <!--- Fonte -->
+  <!-- Fonte -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet"/>
 
 </head>
 
-  <!--- Início do corpo da página -->
+  <!-- Início do corpo da página -->
 <body>
   
-  <!--- Cabeçalho da página -->
+  <!-- Cabeçalho da página -->
   <header class="cabecalho">
     <img src="assets/images/imagem_da_logo.png" alt="Logo Lootsy" class="imagem-cabecalho">
     <p class="lootsy-cabecalho"><a href="../index.html">Lootsy</a></p>
 
-  <!--- Botões de configurações -->
+  <!-- Botões de configurações -->
     <div class="botoes_de_configuracoes">
     <div class="darkmode-button" id="darkmodeToggle" title="Modo Escuro">
     <div id="darkmode-icon">🌙</div>
     <span>Dark Mode</span>
   </div>
 
-  <!---  Botões de aumentar e diminuir fonte -->
+  <!--  Botões de aumentar e diminuir fonte -->
   <div class="botoes_da_fonte">
     <button id="aumentarFonte" title="Aumentar Fonte">🔎+</button>
     <button id="diminuirFonte" title="Diminuir Fonte">🔎-</button>
@@ -42,7 +42,7 @@
       <!-- Final do header da página -->
 
       
-  <!--- Início do corpo principal -->
+  <!-- Início do corpo principal -->
   <main class="container-fluid">
   <section>
     <div class="cadastro">
@@ -51,7 +51,7 @@
         <h1><a href="../index.html">Lootsy</a></h1>
       </div>
 
-      <!--- Formulário de cadastro -->
+      <!-- Formulário de cadastro -->
       <form class="formulario" id="formCadastro">
         <div class="form-group">
           <label for="nome" class="parametros">Nome Completo</label>
@@ -90,9 +90,9 @@
         </div>
 
         <div class="form-group">
-          <label for="telefoneFixo" class="parametros">Telefone Fixo</label>
-          <input type="tel" id="telefoneFixo" name="telefoneFixo" title="Formato válido: +55 21 99999-9999 ou 21999999999" class="form-control" autocomplete="tel-national" placeholder="Ex: +55 21 99999-9999" pattern="(\+55)?\s?\(?\d{2}\)?\s?\d{4,5}-?\d{4}" required>
-          <small class="padraotelefone">Formato: (+55)XX-XXXXXXXX</small>
+          <label for="cep" class="parametros">CEP</label>
+          <input type="text" id="cep" name="cep" class="form-control" placeholder="Ex: 21000-000" pattern="^\d{5}-?\d{3}$" required>
+          <small class="padraotelefone">Formato: XXXXX-XXX</small>
         </div>
 
         <div class="form-group">
@@ -132,11 +132,11 @@
   </section>
   </main>
 
-  <!--- Jquery e JS boostrap -->
+  <!-- Jquery e JS boostrap -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-  <!--- JS -->
+  <!-- JS -->
   <script src="js/cadastro.js"></script>
   
 </body>
