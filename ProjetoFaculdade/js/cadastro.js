@@ -104,7 +104,7 @@ function validarCPF(cpf) {
   const hoje = new Date().toISOString().split("T")[0]; // pega yyyy-mm-dd de hoje
   dataInput.setAttribute("max", hoje);
   dataInput.setAttribute("min", "1900-01-01");
-  
+
   // Tamanho da fonte (auementar ou diminuir)
   let currentFontSize = 16; 
 
@@ -161,7 +161,7 @@ if (tamanhoSalvo) {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const cpf = document.getElementById("cpf").value.trim();
     const telefoneRegex = /^(\+?55\s?\(?\d{2}\)?\s?|\(?\d{2}\)?\s?)\d{4,5}\-?\d{4}$/;
-    const telefoneFixo = document.getElementById("telefoneFixo").value.trim();
+    const cep = document.getElementById("cep").value.trim();
     const telefoneCelular = document.getElementById("telefoneCelular").value.trim();
     const endereco = document.getElementById("endereco").value.trim();
     const login = document.getElementById("login").value.trim();
@@ -176,7 +176,7 @@ if (tamanhoSalvo) {
     document.querySelectorAll(".erro-inline").forEach(el => el.remove());
 
     // Verifica se todos os campos estão preenchidos
-    let campos = ["nome", "data", "sexo", "mae", "cpf", "telefoneFixo", "telefoneCelular", "endereco", "login", "senha", "confirmarSenha"];
+    let campos = ["nome", "data", "sexo", "mae", "cpf", "cep", "telefoneCelular", "endereco", "login", "senha", "confirmarSenha"];
     let camposVazios = campos.filter(id => !document.getElementById(id).value.trim());
     if (camposVazios.length > 0) {
       camposVazios.forEach(id => marcarCampo(id, true, "Campo obrigatório."));
@@ -232,13 +232,14 @@ if (tamanhoSalvo) {
       marcarCampo("telefoneCelular", false);
     }
 
-//Validação telefoneFixo
-  if (!telefoneRegex.test(telefoneFixo)) {
-    marcarCampo("telefoneFixo", true, "Telefone fixo deve estar no formato (+55)XX-XXXXXXXX.");
-      return;
+/// Validação de CEP
+const cepRegex = /^\d{5}-?\d{3}$/;
+if (!cepRegex.test(cep)) {
+  marcarCampo("cep", true, "CEP deve estar no formato XXXXX-XXX.");
+  return;
 } else {
-      marcarCampo("telefoneFixo", false);
-    }
+  marcarCampo("cep", false);
+}
 
 if (!validarCPF(cpf)) {
   marcarCampo("cpf", true, "CPF inválido.");
@@ -297,7 +298,7 @@ if (endereco.length < 10 || endereco.length > 100) {
     // Adiciona o novo usuário
     usuarios.push({
       nome, dataNascimento: data_nascimento, sexo, mae,
-      email, cpf, telefoneFixo, telefoneCelular, endereco,
+      email, cpf, cep, telefoneCelular, endereco,
       login, senha
     });
 
@@ -316,3 +317,36 @@ if (endereco.length < 10 || endereco.length > 100) {
     }, 2000);
   });
     });
+    
+// Função para buscar endereço automaticamente via CEP usando BrasilAPI
+async function buscarEndereco(cep) {
+  const cepLimpo = cep.replace(/\D/g, ''); // Remove tudo que não for número
+  if (cepLimpo.length !== 8) {
+    marcarCampo("cep", true, "CEP inválido.");
+    return;
+  }
+
+  try {
+    const resposta = await fetch(`https://brasilapi.com.br/api/cep/v2/${cepLimpo}`);
+    if (!resposta.ok) {
+      marcarCampo("cep", true, "CEP não encontrado.");
+      return;
+    }
+    const dados = await resposta.json();
+
+    // Preenche o endereço automaticamente
+    const enderecoCompleto = `${dados.street}, ${dados.neighborhood}, ${dados.city} - ${dados.state}`;
+    document.getElementById("endereco").value = enderecoCompleto;
+    marcarCampo("cep", false);
+
+  } catch (erro) {
+    console.error("Erro ao buscar CEP:", erro);
+    marcarCampo("cep", true, "Erro ao buscar CEP.");
+  }
+}
+
+// Evento: quando o usuário sai do campo CEP
+document.getElementById("cep").addEventListener("blur", function() {
+  buscarEndereco(this.value);
+});
+
