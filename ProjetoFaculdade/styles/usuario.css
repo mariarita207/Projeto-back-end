@@ -15,10 +15,16 @@ body {
   color: white;
 }
 
-.logo {
-  height: 60px;
-  width: auto;
-  margin-left: 20px;
+.logo img {
+    width: 150px;
+    height: auto;
+}
+
+.icone-usuario {
+    width: 30px;
+    height: 30px;
+    vertical-align: middle;
+    margin-right: 3px;
 }
 
 /* SEGUNDO RETÂNGULO */
@@ -37,23 +43,27 @@ body {
 /* Campo de busca */
 .input-container {
   position: relative;
-  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1000px;
+  max-width: 1000px;
   margin: 0 auto;
 }
 
-.lupa {
+.icone-lupa {
   position: absolute;
   left: 15px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: black;
+  width: 20px;
+  height: 20px;
 }
 
 .segundo-retangulo input {
   width: 100%;
-  padding: 10px 10px 10px 35px;
+  padding: 10px 10px 10px 45px;
   border: none;
   border-radius: 21px;
+  box-sizing: border-box;
 }
 
 /* TERCEIRO RETÂNGULO */
@@ -133,7 +143,7 @@ body {
   margin: 20px 17px;
   border-radius: 5px;
   width: 95%;
-  min-height: 300px;
+  min-height: 330px;
   position: relative; /* pra posicionar paginação no fundo */
 }
 
@@ -165,11 +175,19 @@ td {
   color: black;
 }
 
+.icone-tabela {
+    width: 20px;
+    height: 20px;
+    display: block;
+    margin: 0 auto;
+    cursor: pointer;
+}
+
 /* Ajuste das colunas */
-.col-nome { width: 22%; text-align: left; padding-left: 20px; }
-.col-usuario { width: 30%; text-align: left; }
-.col-cpf { width: 20%; text-align: left; }
-.col-email { width: 23%; text-align: right; }
+.col-nome { width: 22%; text-align: left; padding-left: 50px; }
+.col-usuario { width: 30%; text-align: left; padding-left: 50px; }
+.col-cpf { width: 20%; text-align: left; padding-left: 50px;}
+.col-email { width: 23%; text-align: right; padding-right: 80px;}
 .col-acoes { width: 5%; text-align: right; }
 
 .info-usuarios {
