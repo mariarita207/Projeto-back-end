@@ -1,0 +1,344 @@
+/* Reset e fonte padrão */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+    color: white;
+}
+
+/* Padronização body + Resetando o overflow-x para evitar rolagem horizontal */
+body {
+  background-color: #2c1c4b;
+  overflow-x: hidden;
+  transition: .5s;
+}
+
+.icone img {
+  height: 40px;
+  width: auto;
+  margin: 0;
+}
+
+ header {
+  background-color: #352262;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+  transition: .5s;
+}
+
+header img {
+  height: 40px;
+}
+
+
+.trilho{
+  width: 80px;
+  height: 40px;
+  background-color: #2B1B48;
+  border: solid 2px #ffffff;
+  border-radius: 150px;
+  position: relative;
+  cursor: pointer;
+ 
+  
+}
+
+.trilho .indicador {
+  width: 38px;
+  height: 36px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  transform: scale(.8);
+  position: absolute;
+  left: 0;
+  transition: .5s;
+}
+
+.trilho.dark{
+  background-color: #d1abab;
+}
+
+.trilho.dark .indicador{
+  left: 38px;
+  background-color: #312c2c;
+  
+}
+
+body.dark{
+  background-color:#131212;
+}
+
+body.dark header{
+  background-color: #1d1b20;
+}
+
+body.dark .login {
+    background-color: #312c2c;
+}
+
+body.dark .cadastro {
+        color: #b97878;   
+    }
+
+body.dark #email {
+            background-color: #131212 ;
+        }
+
+        body.dark #senha {
+            background-color: #131212 ;
+        }
+
+        body.dark #email:focus {
+            border-color: #b97878;
+          }
+          body.dark #senha:focus {
+            border-color: #b97878;
+          }
+
+body.dark #botao {
+            background-color: #131212;
+          }
+          body.dark #limpar {
+            background-color: #131212;
+          }
+
+body.dark #botao:hover {
+      background-color: #585758;
+    }
+    body.dark #limpar:hover {
+      background-color: #585758;
+    }
+
+/* Centralização da seção */
+section {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Container de login */
+.login {
+    background-color: #392666;
+    border-radius: 20px;
+    padding: 25px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 2px 10px 10px 10px rgba(0, 0, 0, 0.493);
+
+/* Header do card */
+    .lootsy-body {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+        .lootsy-body img {  
+            width: 200px;
+            margin-top: 5px;
+        }
+
+        
+    }
+
+    h1 a {
+  color: inherit; /* usa a mesma cor do h1 */
+  text-decoration: none; /* tira o sublinhado */
+}
+
+
+    /* Título do card LOGIN h3 */
+    .login h3 {
+        text-align: center;
+        padding: 20px 0 10px;
+        font-size: 20px;
+    }
+
+    /* Formulário */
+    .formulario {
+        display: flex;
+        flex-direction: column;
+        padding: 15px;
+    }
+
+    /* formulário email */
+        .label-email {
+            margin-bottom: 10px;
+        }
+
+        /* formulário senha */
+        .label-senha {
+            margin: 10px 0px;
+        }
+
+        #email,
+        #senha {
+            background-color: #2b1b48 ;
+            border: 1px solid #ffffff54;
+            border-radius: 5px;
+            height: 35px;
+            font-size: 16px;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            color:white !important; 
+
+        }
+
+        #email:focus,
+        #senha:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(207, 116, 207, 0.4);
+            background-color: #2b1b48;
+            color: white !important;
+            border-color: #cf74cf;
+            box-shadow: 0 0 5px 2px rgba(207, 116, 207, 0.6);
+        }
+
+        /* Força fundo e cor no autocomplete (Chrome) */
+        input:-webkit-autofill,
+        input:-webkit-autofill:hover,
+        input:-webkit-autofill:focus,
+        input:-webkit-autofill:active {
+        -webkit-box-shadow: 0 0 0 1000px #2b1b48 inset !important;
+        -webkit-text-fill-color: white !important;
+        transition: background-color 5000s ease-in-out 0s;
+}
+
+
+    /* Botão */
+    .button {
+        margin: 5px 15px 35px 16px;
+        #botao, #limpar {
+            background-color: #cf74cf;
+            width: 100%;
+            padding: 10px;
+            font-size: large;
+            font-weight: bolder;
+            border: none;
+            border-radius: 5px;
+            transition: .5s;
+
+        }
+    }
+
+    .button #botao:hover,
+        #limpar:hover {
+          background-color: #a35fc4;
+    }
+    
+/* Link de cadastro */
+    .cadastro {
+        text-decoration: none;
+        color: #cf74cf;
+        
+    }
+
+    .cadastro:hover{
+        font-size: 12px;
+        text-decoration-line: underline;
+    }
+
+    p {
+        text-align: center;
+        font-size: x-small;
+    }
+
+    /* Responsividade */
+    /* Tela menor que 768px (tablets e celulares maiores) */
+@media (max-width: 768px) {
+  section {
+    height: auto;  /* deixa o container adaptar a altura */
+    padding: 40px 20px; /* dá um espaçamento nas laterais */
+  }
+  
+  .login {
+    max-width: 100%;  /* ocupa toda a largura disponível */
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 1px 5px 10px rgba(0,0,0,0.3);
+  }
+
+  .lootsy-body img {
+    size: 40px; /* reduz o título para caber melhor */
+  }
+
+  .login h3 {
+    font-size: 18px;
+  }
+
+  #email, #senha {
+    font-size: 14px;
+    height: 40px;
+  }
+
+  .button #botao {
+    font-size: 16px;
+    padding: 12px;
+  }
+}
+
+/* Tela menor que 480px (celulares menores) */
+@media (max-width: 480px) {
+  section {
+    padding: 20px 10px;
+  }
+
+  .login {
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: none;
+  }
+
+  .lootsy-body img {
+    width: 70px;
+  }
+
+
+
+  .login h3 {
+    font-size: 16px;
+  }
+
+  #email, #senha {
+    font-size: 13px;
+    height: 35px;
+  }
+
+  .button #botao {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  p {
+    font-size: smaller;
+  }
+}
+@media (max-width: 768px) {
+      .container {
+        margin: 30px 20px;
+        padding: 25px;
+      }
+
+      header h1 {
+        font-size: 2em;
+      }
+
+      .navbar {
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.nav-links {
+  display: inline-flex;
+  flex-wrap: nowrap;
+  gap: 10px; 
+  padding: 10px 20px;
+}
+
+.nav-links li {
+  display: inline-block;
+}
+    }
