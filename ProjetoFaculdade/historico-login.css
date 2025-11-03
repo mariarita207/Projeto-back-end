@@ -1,0 +1,226 @@
+/* ---------- RESET ---------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: #f3f3f3;
+}
+
+/* ---------- TOPO ---------- */
+.topo {
+  background-color: #3b0066;
+  color: #fff;
+  padding: 10px 40px;
+}
+
+/* Linha com logo e usuário */
+.barra-superior {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo img {
+  width: 40px;
+  height: 40px;
+}
+
+.logo h1 {
+  font-size: 1.8em;
+  font-weight: 700;
+}
+
+/* ---------- USUÁRIO + INTERRUPTOR ---------- */
+.usuario {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.info-usuario {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  line-height: 1.1;
+}
+
+.info-usuario .ola {
+  font-size: 0.8em;
+  color: #ccc;
+  font-weight: 400;
+}
+
+.info-usuario .nome-usuario {
+  font-size: 0.95em;
+  font-weight: 600;
+  color: #fff;
+}
+
+/* ---------- INTERRUPTOR (modo claro/escuro) ---------- */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 34px;
+  height: 18px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #999;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 14px;
+  width: 14px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #3b0066;
+}
+
+input:checked + .slider:before {
+  transform: translateX(16px);
+}
+
+/* ---------- LINHA: HISTÓRICO + BUSCA ---------- */
+.linha-login-busca {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+  background-color: #4b0082;
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+
+.linha-login-busca h2 {
+  font-size: 1.3em;
+  font-weight: 600;
+}
+
+/* ---------- BUSCA ---------- */
+.busca {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.busca label {
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.busca input,
+.busca select {
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+  width: 150px;
+}
+
+.busca select {
+  width: 100px;
+}
+
+/* ---------- CONTEÚDO ---------- */
+.conteudo {
+  background-color: #fff;
+  margin: 30px auto;
+  padding: 30px;
+  width: 95%;
+  border-radius: 10px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+}
+
+.conteudo h3 {
+  margin-bottom: 10px;
+  font-size: 1em;
+  color: #444;
+}
+
+/* ---------- TABELA ---------- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed; /* garante largura uniforme */
+}
+
+th,
+td {
+  width: 25%; /* divide igualmente entre as 4 colunas */
+  text-align: left;
+  padding: 10px;
+}
+
+th {
+  background-color: #e5e5e5;
+  font-weight: 600;
+  color: #555;
+}
+
+td {
+  height: 25px;
+  border-bottom: 1px solid #ddd;
+}
+
+/* ---------- PAGINAÇÃO ---------- */
+.paginacao {
+  display: flex;
+  justify-content: flex-end;
+  gap: 6px;
+  margin-top: 15px;
+}
+
+.paginacao button {
+  border: none;
+  background-color: #e6e6e6;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.paginacao button.ativo {
+  background-color: #3b0066;
+  color: #fff;
+}
+
+.info {
+  font-size: 0.8em;
+  color: #666;
+  text-align: right;
+  margin-top: 5px;
+}
