@@ -144,7 +144,7 @@ body {
   border-radius: 5px;
   width: 95%;
   min-height: 330px;
-  position: relative; /* pra posicionar paginação no fundo */
+  position: relative; 
 }
 
 .retangulo-menor {
