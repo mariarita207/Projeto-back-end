@@ -16,15 +16,15 @@ body {
 }
 
 .logo img {
-    width: 150px;
-    height: auto;
+  width: 150px;
+  height: auto;
 }
 
 .icone-usuario {
-    width: 30px;
-    height: 30px;
-    vertical-align: middle;
-    margin-right: 3px;
+  width: 30px;
+  height: 30px;
+  vertical-align: middle;
+  margin-right: 3px;
 }
 
 /* SEGUNDO RETÂNGULO */
@@ -46,7 +46,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 1000px;
+  width: 90%;
   max-width: 1000px;
   margin: 0 auto;
 }
@@ -140,11 +140,11 @@ body {
 .quarto-retangulo {
   background-color: #F3F3F3;
   padding: 20px;
-  margin: 20px 17px;
+  margin: 20px auto;
   border-radius: 5px;
   width: 95%;
   min-height: 330px;
-  position: relative; 
+  position: relative;
 }
 
 .retangulo-menor {
@@ -152,12 +152,14 @@ body {
   color: black;
   border-radius: 5px;
   padding: 10px;
+  overflow-x: auto;
 }
 
 /* TABELA */
 table {
   width: 100%;
   border-collapse: collapse;
+  min-width: 600px;
 }
 
 th {
@@ -176,18 +178,18 @@ td {
 }
 
 .icone-tabela {
-    width: 20px;
-    height: 20px;
-    display: block;
-    margin: 0 auto;
-    cursor: pointer;
+  width: 20px;
+  height: 20px;
+  display: block;
+  margin: 0 auto;
+  cursor: pointer;
 }
 
 /* Ajuste das colunas */
 .col-nome { width: 22%; text-align: left; padding-left: 50px; }
 .col-usuario { width: 30%; text-align: left; padding-left: 50px; }
-.col-cpf { width: 20%; text-align: left; padding-left: 50px;}
-.col-email { width: 23%; text-align: right; padding-right: 80px;}
+.col-cpf { width: 20%; text-align: left; padding-left: 50px; }
+.col-email { width: 23%; text-align: right; padding-right: 80px; }
 .col-acoes { width: 5%; text-align: right; }
 
 .info-usuarios {
@@ -213,11 +215,12 @@ td {
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .paginacao a {
   display: inline-block;
-  margin: 0 3px;
+  margin: 3px;
   padding: 5px 10px;
   text-decoration: none;
   background-color: #f0f0f0;
@@ -233,4 +236,88 @@ td {
 .paginacao a.ativo {
   background-color: #392666;
   color: white;
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 1024px) {
+  .input-container {
+    width: 80%;
+  }
+
+  .col-nome, .col-usuario, .col-cpf, .col-email {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .col-email {
+    text-align: left;
+  }
+}
+
+@media (max-width: 768px) {
+  .topo {
+    flex-direction: row; /* Mantém lado a lado */
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+    padding: 0 20px;
+    text-align: left;
+  }
+}
+
+  .input-container {
+    width: 95%;
+  }
+
+  table {
+    font-size: 12px;
+  }
+
+ /* Estilo base (para todos os dropdowns) */
+.dropdown {
+  background-color: #d9d9d9;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 6px 25px 6px 10px;
+  user-select: none;
+  display: inline-block;
+  color: black;
+  transition: all 0.3s ease;
+}
+
+/* Dropdown que fica no topo, perto da linha */
+.dropdown-top {
+  position: absolute;
+  right: 20px;
+  top: -50px;
+}
+
+/* Dropdown que fica embaixo da tabela */
+.dropdown-bottom {
+  position: relative;
+  margin: 20px auto;
+  display: block;
+}
+
+/* Responsividade — telas médias */
+@media (max-width: 1024px) {
+  .dropdown-top {
+    top: -30px;
+    right: 10px;
+  }
+}
+
+/* Responsividade — telas pequenas */
+@media (max-width: 768px) {
+  .dropdown-top {
+    position: relative;
+    top: 0;
+    right: 0;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    width: fit-content;
+  }
 }
