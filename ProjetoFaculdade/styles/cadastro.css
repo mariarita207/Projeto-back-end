@@ -227,6 +227,44 @@ input:-webkit-autofill:active {
   outline-offset: 2px;
 }
 
+#limpar {
+  background-color: #cf74cf;
+  width: 100%;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  padding: 12px;
+  will-change: transform;
+  }
+
+#limpar:hover {
+  background-color: #b45ab4;
+  transform: scale(1.02);
+}
+
+/* Melhoria de acessibilidade */
+#limpar:focus-visible {
+  outline: 2px solid #cf74cf;
+  outline-offset: 2px;
+}
+
+.botoes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin-top: 10px;
+  
+}
+
+.botoes button {
+  width: 48%;
+   color: white;
+}
+
 .login_mensagem {
   color: white;
   text-align: center;
