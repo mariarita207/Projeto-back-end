@@ -30,7 +30,7 @@ document.querySelector("#botao").addEventListener("click", function(e) {
 
     mostrarMensagem("Login realizado com sucesso! Redirecionando...", "sucesso");
     setTimeout(() => {
-      window.location.href = "home.html";
+      window.location.href = "/Projeto-back-end-main/index.html";
     }, 2000);
   } else {
     mostrarMensagem("Email ou senha incorretos.", "erro");
