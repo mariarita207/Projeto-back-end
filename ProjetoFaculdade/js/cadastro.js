@@ -148,7 +148,6 @@ if (tamanhoSalvo) {
 
     // Evento de envio do formulário
     document.getElementById("formCadastro").addEventListener("submit", function (e) {
-    e.preventDefault(); // impede o envio do formulário automático
     const nome = document.getElementById("nome").value.trim();
     const dataNascimento = new Date(document.getElementById("data").value);
     const dataMinima = new Date("1900-01-01");
