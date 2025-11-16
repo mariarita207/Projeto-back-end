@@ -1,0 +1,484 @@
+/* Padronização do trabalho inteiro + fontes + Resetando o overflow-x para evitar rolagem horizontal*/ 
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: "Montserrat", Arial, Helvetica, sans-serif;
+  background-color: #2c1c4b;
+  overflow-x: hidden;
+}
+
+/* Resetando box-sizing para todos os elementos (ajuda para evitar que elemento ultrapasse tela */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* Estilização do cabeçalho */
+header {
+  background-color: #352262;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+  transition: .5s;
+}
+
+header img {
+  height: 40px;
+}
+
+
+.trilho{
+  width: 80px;
+  height: 40px;
+  background-color: #2B1B48;
+  border: solid 2px #ffffff;
+  border-radius: 150px;
+  position: relative;
+  cursor: pointer;
+ 
+  
+}
+
+.trilho .indicador {
+  width: 38px;
+  height: 36px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  transform: scale(.8);
+  position: absolute;
+  left: 0;
+  transition: .5s;
+}
+
+.trilho.dark{
+  background-color: #d1abab;
+}
+
+.trilho.dark .indicador{
+  left: 38px;
+  background-color: #312c2c;
+  
+}
+
+body.dark{
+  background-color:#131212;
+}
+
+body.dark header{
+  background-color: #1d1b20;
+}
+
+body.dark .cadastro {
+  background-color: #1e1e1e;
+}
+
+body.dark .formulario input{
+  background-color: #131212;
+}
+
+body.dark .formulario input:focus{
+  background-color: #131212;
+}
+
+body.dark .formulario select{
+  background-color: #131212;
+}
+
+body.dark .formulario select:focus{
+  background-color: #131212;
+}
+
+body.dark #botao{
+  background-color: #131212;
+}
+
+body.dark #botao:hover{
+  background-color: #585758;
+}
+
+body.dark #limpar{
+  background-color: #131212;
+}
+
+body.dark #limpar:hover{
+  background-color: #585758;
+}
+
+body.dark .login_mensagem a.login{
+  color:#b97878;
+}
+
+/* Centralização */
+section {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+
+/* Card de cadastro */
+.cadastro {
+  background-color: #392666;
+  border-radius: 20px;
+  padding: 30px;
+  width: 100%;
+  max-width: 700px;
+  box-shadow: 2px 10px 10px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Select sobre sexo do usuário e evitando de ficar com fundo branco */
+.formulario select {
+  background-color: #2b1b48;
+  color: white !important;
+  border: 1px solid #ffffff54;
+  border-radius: 5px;
+  height: 35px;
+  font-size: 15px;
+  padding: 5px 10px;
+  width: 100%;
+  appearance: none;
+}
+
+.formulario select:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(207, 116, 207, 0.4);
+  background-color: #2b1b48;
+  color: white !important;
+}
+
+
+/* Header do formulário */
+.lootsy-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.lootsy-body img {
+  width: 200px;
+  margin-top: 5px;
+}
+
+/* Texto de instrução */
+.parametros {
+  color: white;
+  font-size: 16px;
+  margin-top: 10px;
+  text-align: left;
+}
+
+.padraotelefone {
+  color: rgb(211, 168, 168);
+  font-size: 10px;
+  margin-top: 5px;
+  text-align: left;
+}
+
+.padraologin {
+  color: rgb(211, 168, 168);
+  font-size: 10px;
+  margin-top: 5px;
+  text-align: left;
+}
+
+.padraosenha {
+  color: rgb(211, 168, 168);
+  font-size: 10px;
+  margin-top: 5px;
+  text-align: left;
+}
+
+
+/* Formulário em grid */
+.formulario {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px 25px;
+  margin-top: 30px;
+  padding: 0 10px;
+}
+
+/* Aparência dos labels e caixas de inputs */
+.formulario label.parametros {
+  display: block;
+  font-size: 14px;     
+  font-weight: 600;
+  margin-bottom: 6px; 
+  margin-top: 0;  
+  color: white;
+  text-align: left;
+}
+
+/* Inputs com foco para deixar de ficar branco quando clicavel */
+.formulario input,
+.formulario select {
+  padding: 8px 10px;
+  background-color: #2b1b48;
+  color: #fff;
+  border: 1px solid #888;
+  border-radius: 5px;
+  font-size: 15px;
+  width: 100%;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.formulario input:focus {
+  background-color: #2b1b48;
+  color: white !important;
+  outline: none;
+  box-shadow: 0 0 5px 2px rgba(207, 116, 207, 0.6);
+  border-color: #cf74cf;
+}
+
+/* Para inputs com autofill ( pesquisei no chat!)*/
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 1000px #2b1b48 inset !important; /* fundo escuro */
+  -webkit-text-fill-color: white !important; /* texto branco */
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+/* Campo endereço ocupa a linha toda */
+#endereco {
+  grid-column: span 2;
+}
+
+/* Botão */
+.button {
+  grid-column: span 2;
+  margin-top: 25px;
+  color: black;
+}
+
+#botao {
+  background-color: #cf74cf;
+  width: 100%;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  padding: 12px;
+  will-change: transform;
+  }
+
+#botao:hover {
+  background-color: #b45ab4;
+  transform: scale(1.02);
+}
+
+/* Melhoria de acessibilidade */
+#botao:focus-visible {
+  outline: 2px solid #cf74cf;
+  outline-offset: 2px;
+}
+
+#limpar {
+  background-color: #cf74cf;
+  width: 100%;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  padding: 12px;
+  will-change: transform;
+  }
+
+#limpar:hover {
+  background-color: #b45ab4;
+  transform: scale(1.02);
+}
+
+/* Melhoria de acessibilidade */
+#limpar:focus-visible {
+  outline: 2px solid #cf74cf;
+  outline-offset: 2px;
+}
+
+.botoes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin-top: 10px;
+  
+}
+
+.botoes button {
+  width: 48%;
+   color: white;
+}
+
+.login_mensagem {
+  color: white;
+  text-align: center;
+  margin-top: 15px;
+  font-size: 13px;
+}
+
+.login_mensagem a.login {
+  color: #cf74cf;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.login_mensagem a.login:hover {
+  text-decoration: underline;
+}
+
+/* Mensagem de sucesso */
+.mensagem-sucesso {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 20px;
+  text-align: center;
+}
+/* Mensagem de erro */
+.mensagem-erro {
+  background-color: #f44336;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 20px;
+  text-align: center;
+}
+
+/*   Input com erro ou sucesso*/
+.input-erro {
+  border: 3px solid #e74c3c !important;
+  box-shadow: 0 0 8px 2px rgba(231, 76, 60, 0.7) !important;
+}
+
+.input-sucesso {
+  border: 3px solid #2ecc71 !important;
+  box-shadow: 0 0 8px 2px rgba(46, 204, 113, 0.7) !important;
+}
+
+/* Efeito de foco para inputs com erro ou sucesso */
+.input-erro:focus {
+  border-color: #e74c3c !important;
+  box-shadow: 0 0 8px 3px rgba(231, 76, 60, 0.9) !important;
+}
+
+.input-sucesso:focus {
+  border-color: #2ecc71 !important;
+  box-shadow: 0 0 8px 3px rgba(46, 204, 113, 0.9) !important;
+}
+
+input.form-control.input-erro {
+  border: 2px solid #e74c3c !important;
+  box-shadow: 0 0 5px 2px rgba(231, 76, 60, 0.6) !important;
+}
+
+input.form-control.input-erro:focus {
+  border-color: #e74c3c !important;
+  box-shadow: 0 0 5px 3px rgba(231, 76, 60, 0.9) !important;
+}
+
+
+
+/* Responsabilidade */
+  @media (max-width: 768px) {
+  .formulario {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .form-group {
+  margin-bottom: 18px; 
+}
+
+.button {
+    grid-column: span 1;
+  }
+
+  .cadastro {
+    padding: 20px;
+    max-width: 100%;
+  }
+
+  .lootsy-body h1 {
+    font-size: 30px;
+  }
+
+  .lootsy-body img {
+    width: 80px;
+  }
+  
+}
+
+@media (max-width: 480px) {
+  .lootsy-body h1 {
+    font-size: 22px;
+    margin-bottom: 10px;
+  }
+
+  .lootsy-body img {
+    width: 50px;
+  }
+
+  .botoes_da_fonte {
+    flex-direction: column;
+  }
+
+  .cadastro {
+    max-width: 95%;
+    padding: 15px;
+  }
+
+  .cabecalho {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 8px 10px;
+  }
+
+  .botoes_de_configuracoes {
+    position: static;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 15px;
+  }
+
+  .botoes_da_fonte {
+    gap: 8px;
+    margin-bottom: 15px;
+  }
+
+  .login_mensagem {
+    font-size: 12px;
+  }
+
+  .formulario {
+    gap: 12px 15px;
+  }
+
+  .formulario label.parametros {
+    font-size: 13px;
+  }
+
+  .formulario input,
+  .formulario select {
+    font-size: 14px;
+  }
+
+  .lootsy-cabecalho {
+    font-size: 18px;
+    margin-top: 5px;
+  }
+
+}
+
+/* fim do CSS da tela de cadastro */
