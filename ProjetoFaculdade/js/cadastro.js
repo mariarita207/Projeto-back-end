@@ -57,94 +57,6 @@ function validarCPF(cpf) {
     campo.classList.add("input-sucesso");
   }
 }
-  // Dark mode com LocalStorage e DOM
-  document.addEventListener("DOMContentLoaded", () => { // juntando todos os elementos para que o DOM esteja carregado antes de manipular elementos
-  const darkButton = document.querySelector(".darkmode-button");
-  const emojiIcon = document.getElementById("darkmode-icon");
-  const cabecalho = document.querySelector(".cabecalho");
-  const cadastro = document.querySelector(".cadastro");
-
-  // Para garantir que o botão não fique desabilitado
-  document.getElementById("botao").disabled = false;
-
-  // 👉 Aplica tema salvo
-  const temaSalvo = localStorage.getItem("modo");
-  if (temaSalvo === "dark") {
-    document.body.classList.add("dark");
-    cabecalho?.classList.add("dark");
-    cadastro?.classList.add("dark");
-    emojiIcon.textContent = "🌙";
-  } else {
-    emojiIcon.textContent = "☀️"; //default emoji no primeiro acesso
-  }
-  
-  // Se não houver tema salvo, assume o modo claro, só para garantir
-  if (temaSalvo === "light" || !temaSalvo) {
-  emojiIcon.textContent = "☀️";
-}
-
-  if (darkButton) {
-    darkButton.addEventListener("click", () => {
-      const modoEscuroAtivo = document.body.classList.toggle("dark");
-      cabecalho?.classList.toggle("dark");
-      cadastro?.classList.toggle("dark");
-
-      if (modoEscuroAtivo) {
-        emojiIcon.textContent = "🌙";
-        localStorage.setItem("modo", "dark");
-      } else {
-        emojiIcon.textContent = "☀️";
-        localStorage.setItem("modo", "light");
-      }
-    });
-  }
-
-  // Configura o input de data para não permitir datas futuras (tirei de outro DOMContentLoaded e tudo dentro um único listener)
-  const dataInput = document.getElementById("data");
-  const hoje = new Date().toISOString().split("T")[0]; // pega yyyy-mm-dd de hoje
-  dataInput.setAttribute("max", hoje);
-  dataInput.setAttribute("min", "1900-01-01");
-
-  // Tamanho da fonte (auementar ou diminuir)
-  let currentFontSize = 16; 
-
-  const ajustarFonte = (novaTamanho) => {
-    // Alvo: todos os elementos de texto no formulário
-    const elementos = document.querySelectorAll(
-      '.formulario label, .formulario input, .formulario select, .formulario small, .formulario button'
-    );
-
-    elementos.forEach(el => {
-      el.style.fontSize = novaTamanho + 'px';
-    });
-
-    currentFontSize = novaTamanho;
-
-    // Salvar no LocalStorage
-     localStorage.setItem('tamanhoFonte', novaTamanho);
-  };
-
-// Recupera tamanho salvo ou usa padrão 16 (precisa vir antes do event listener e depois do current FontSize)
-let tamanhoSalvo = localStorage.getItem('tamanhoFonte');
-if (tamanhoSalvo) {
-  currentFontSize = parseInt(tamanhoSalvo, 10);
-  ajustarFonte(currentFontSize);
-} else {
-  currentFontSize = 16; // valor padrão caso não tenha salvo ainda
-  ajustarFonte(currentFontSize);
-}
-
-  document.getElementById('aumentarFonte').addEventListener('click', () => {
-    if (currentFontSize < 24) {
-      ajustarFonte(currentFontSize + 1);
-    }
-  });
-
-  document.getElementById('diminuirFonte').addEventListener('click', () => {
-    if (currentFontSize > 12) {
-      ajustarFonte(currentFontSize - 1);
-    }
-  });
 
     // Evento de envio do formulário
     document.getElementById("formCadastro").addEventListener("submit", function (e) {
@@ -315,7 +227,7 @@ if (endereco.length < 10 || endereco.length > 100) {
       window.location.href = "login.html";
     }, 2000);
   });
-    });
+  
     
 // Função para buscar endereço automaticamente via CEP usando BrasilAPI
 async function buscarEndereco(cep) {
@@ -356,5 +268,22 @@ let body = document.querySelector('body')
 trilho.addEventListener('click', ()=>{
 trilho.classList.toggle('dark')
 body.classList.toggle('dark')
+
+ // Salva o estado no localStorage
+if (body.classList.contains('dark')) {
+        localStorage.setItem('theme', 'dark');
+    } else {
+        localStorage.setItem('theme', 'light');
+    }
+
 })
 
+// Ao carregar a página, aplica o tema salvo
+window.addEventListener('DOMContentLoaded', () => {
+    const savedTheme = localStorage.getItem('theme');
+    
+    if (savedTheme === 'dark') {
+        document.body.classList.add('dark');
+        document.getElementById('trilho').classList.add('dark');
+    }
+});
