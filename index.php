@@ -22,7 +22,7 @@
 <body>
 <header> 
     <div class="icone">
-       <a href="/Projeto-back-end-main/index.html">
+       <a href="/Projeto-back-end-main/index.php">
         <img src="ProjetoFaculdade/assets/images/logo+nome.png" alt="Lootsy">
        </a>
     </div>
@@ -31,7 +31,7 @@
    </div>
 
    <div class="header-buttons">
-     <a href="ProjetoFaculdade/login.html" class="login-button">
+     <a href="ProjetoFaculdade/login.php" class="login-button">
       <img src="ProjetoFaculdade/assets/images/login-icone.png" alt="Login" class="login-icon">
       <div class="login-text">LOGIN<br>CADASTRE-SE</div>
      </a>
@@ -51,9 +51,9 @@
 
     <nav class="navbar">
         <ul class="nav-links">
-  <li><a href="/Projeto-back-end-main/index.html">Página Inicial</a></li>    
-  <li><a href="ProjetoFaculdade/todososjogos.html">Jogos</a></li>
-  <li><a href="ProjetoFaculdade/sobrenos.html">Sobre Nós</a></li>
+  <li><a href="/Projeto-back-end-main/index.php">Página Inicial</a></li>    
+  <li><a href="ProjetoFaculdade/todososjogos.php">Jogos</a></li>
+  <li><a href="ProjetoFaculdade/sobrenos.php">Sobre Nós</a></li>
         </ul>
   </nav>
 
@@ -86,25 +86,25 @@
       <img src="ProjetoFaculdade/assets/images/thelast.png" loading="lazy" alt="The Last of Us Part II" />
       <h3>The Last of Us Part II</h3>
       <p>R$ 195,99</p>
-      <a href="ProjetoFaculdade/catalogo_jogos/jogo-last-of-us/catalogo.html" class="btn">Conferir</a>
+      <a href="ProjetoFaculdade/catalogo_jogos/jogo-last-of-us/catalogo.php" class="btn">Conferir</a>
     </div>
     <div class="jogo">
       <img src="ProjetoFaculdade/assets/images/reddead.png" loading="lazy" alt="Red Dead Redemption II" />
       <h3>Red Dead Redemption II</h3>
       <p>R$ 150,28</p>
-      <a href="ProjetoFaculdade/catalogo_jogos/jogo-red-dead/redDead.html" class="btn">Conferir</a>
+      <a href="ProjetoFaculdade/catalogo_jogos/jogo-red-dead/redDead.php" class="btn">Conferir</a>
     </div>
     <div class="jogo">
       <img src="ProjetoFaculdade/assets/images/zelda.jpg" loading="lazy" alt="The Legend of Zelda" />
       <h3>The Legend of Zelda: Echoes of Wisdom</h3>
       <p>R$ 150</p>
-      <a href="ProjetoFaculdade/catalogo_jogos/jogo-zelda/zelda.html" class="btn">Conferir</a>
+      <a href="ProjetoFaculdade/catalogo_jogos/jogo-zelda/zelda.php" class="btn">Conferir</a>
     </div>
     <div class="jogo">
       <img src="ProjetoFaculdade/assets/images/fable.webp" loading="lazy" alt="Fable Anniversary" />
       <h3>Fable Anniversary Edition</h3>
       <p>R$ 50,99</p>
-      <a href="ProjetoFaculdade/catalogo_jogos/jogo-fable/fable.html" class="btn">Conferir</a>
+      <a href="ProjetoFaculdade/catalogo_jogos/jogo-fable/fable.php" class="btn">Conferir</a>
     </div>
   </div>
 </section>
@@ -116,7 +116,7 @@
       <div class="textos">
        <p class="titulo">O melhor loot é encontrar o jogo perfeito</p>
        <p class="subtitulo">Ofertas lendárias em jogos de console e PC.</p>
-       <a href="ProjetoFaculdade/todososjogos.html" class="btn">Explorar Jogos</a>
+       <a href="ProjetoFaculdade/todososjogos.php" class="btn">Explorar Jogos</a>
       </div>
 
       <div class="imagem-wrapper">
@@ -197,6 +197,7 @@
   <!--- JS -->
   <script src="ProjetoFaculdade/js/index.js"></script>
   <script src="ProjetoFaculdade/js/banner.js"></script>
+ <script src="js/darkmode.js"></script>
 
 </body>
 </html> 
