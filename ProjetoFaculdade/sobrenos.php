@@ -104,7 +104,7 @@
           Estamos há 10 anos no mercado
           com o objetivo de ser a melhor loja online de games. <br>
           Enviamos para todo o país, através dos serviços de entrega dos Correios, tudo bem embalado e com segurança.</p>
-        <p>Estamos em Rio de Janeiro/RJ e temos loja física no bairro de Bonsucesso e Magé.<br>
+        <p>Estamos em Rio de Janeiro/RJ e temos loja física no bairro de Bonsucesso.<br>
           Visite-nos, tem muita coisa boa.<br>
           Saudações Gamers!</p>
       </div>
@@ -139,7 +139,7 @@
     </div>
   </footer>
 
-<script src="js/sobrenos.js"></script>
+<script src="js/darkmode.js"></script>
 
 </body>
 </html>
