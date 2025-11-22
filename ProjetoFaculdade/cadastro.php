@@ -11,7 +11,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
     $email = $_POST['email'];
     $celular = $_POST['telefoneCelular'];
     $login = $_POST['login'];
-    $senha = $_POST['senha'];
+    $senha = password_hash($_POST['senha'] , PASSWORD_DEFAULT);
     $data_nascimento = $_POST['data'];
     $nome_materno = $_POST['mae'];
 
@@ -28,4 +28,5 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
     }
 }
 ?>
+
 
