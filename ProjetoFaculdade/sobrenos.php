@@ -18,7 +18,7 @@
 <body>
   <header> 
     <div class="icone">
-       <a href="../index.html">
+       <a href="../index.php">
         <img src="assets/images/logo+nome.png" alt="Lootsy">
        </a>
     </div>
@@ -27,7 +27,7 @@
    </div>
 
    <div class="header-buttons">
-     <a href="login.html" class="login-button">
+     <a href="login.php" class="login-button">
       <img src="assets/images/login-icone.png" alt="Login" class="login-icon">
       <div class="login-text">LOGIN<br>CADASTRE-SE</div>
      </a>
@@ -47,9 +47,9 @@
 
     <nav class="navbar">
         <ul class="nav-links">
-  <li><a href="../index.html">Página Inicial</a></li>    
-  <li><a href="todososjogos.html">Jogos</a></li>
-  <li><a href="sobrenos.html">Sobre Nós</a></li>
+  <li><a href="../index.php">Página Inicial</a></li>    
+  <li><a href="todososjogos.php">Jogos</a></li>
+  <li><a href="sobrenos.php">Sobre Nós</a></li>
         </ul>
   </nav>
 
