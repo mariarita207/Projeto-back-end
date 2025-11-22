@@ -20,7 +20,7 @@
 <body>
     <header class="cabecalho">
         <div class="icone">
-        <a href="../index.html">
+        <a href="../index.php">
         <img src="assets/images/logo+nome.png" alt="Logo Lootsy" class="imagem-cabecalho"/>
         </a>
         </div>
@@ -56,4 +56,5 @@
     <script src="js/login.js"></script>
 </body>
 </html>
+
 <!-- Final do código -->
