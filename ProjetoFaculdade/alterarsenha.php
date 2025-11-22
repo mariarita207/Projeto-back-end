@@ -20,7 +20,7 @@
 <body>
     <header class="cabecalho">
         <div class="icone">
-        <a href="../index.html">
+        <a href="../index.php">
         <img src="assets/images/logo+nome.png" alt="Logo Lootsy" class="imagem-cabecalho"/>
         </a>
         </div>
@@ -31,7 +31,7 @@
     <section class="container d-flex justify-content-center">
         <div class="alterar">
             <div class="lootsy-body text-center">
-                <a href="../index.html">
+                <a href="../index.php">
                 <img src="assets/images/logo+nome.png" alt="ícone da plataforma Lootsy"/>
                 </a>
             </div>
@@ -60,3 +60,4 @@
 </body>
 </html>
 <!-- Final do código -->
+
