@@ -36,7 +36,7 @@
     
     <!--- Início do corpo principal -->
     <main>
-    <section class="container d-flex justify-content-center align-items-center min-vh-100">
+    <section class="container d-flex justify-content-center">
         <div class="login">
             <div class="lootsy-body">
                 <a href="../index.html">
@@ -47,27 +47,32 @@
             <!--- Título do formulário de login -->
             <h3 class="text-center">LOGIN</h3>
 
-            <!--- Formulário de login -->
-            <div class="formulario">
-                <label for="email" class="label-email">E-MAIL</label>
-                <input type="email" class="form-control" name="email" id="email" required>
-                <label for="senha" class="label-senha">SENHA</label>
-                <input type="password" class="form-control" name="senha" id="senha" required>
-            </div>
+<form action="login.php" method="POST" class="formulario">
+    <label for="email" class="label-email">E-MAIL</label>
+    <input type="email" class="form-control" name="email" id="email" required>
 
-            <div id="mensagem-login" class="text-center my-2"></div>
+    <label for="senha" class="label-senha">SENHA</label>
+    <input type="password" class="form-control" name="senha" id="senha" required>
 
-            <div class="button d-flex gap-2 px-3">
-    <button class="btn btn-primary w-50" id="botao" type="button">ENTRAR</button>
-    <button class="btn btn-primary w-50" id="limpar" type="button">LIMPAR</button>
-</div>
-            <p>NOVO POR AQUI? <a href="cadastro.html" class="cadastro">CADASTRE-SE</a></p>
-        </div>
+    <div class="text-center my-2" id="mensagem-login"></div>
+
+    <div class="button d-flex gap-2 px-3 mt-3">
+        <button class="btn btn-primary w-50" id="botao" type="submit">ENTRAR</button>
+        <button class="btn btn-primary w-50" id="limpar" type="reset">LIMPAR</button>
+    </div>
+</form>
+
+            <p>NOVO POR AQUI? <a href="cadastro.php" class="cadastro">CADASTRE-SE</a></p>
+            
     </section>
     </main>
 
     <!-- JS -->
     <script src="js/login.js"></script>
+    <script src="js/darkmode.js"></script>
+
+
+    
 </body>
 </html>
 <!-- Final do código -->
