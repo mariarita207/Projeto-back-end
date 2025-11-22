@@ -9,6 +9,7 @@ $conexao = new mysqli($servidor,$usuario,$senha,$banco);
 if($conexao->connect_error){
     echo("Erro de conexão");
 }
-echo "conexão efetuada";
+
+
 
 ?>
