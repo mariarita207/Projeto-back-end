@@ -1,0 +1,150 @@
+<!-- Inicio do HTML -->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Last of Us: Part II</title>
+
+   <!--- CSS e CSS boostrap -->
+    <link rel="stylesheet" href="jogoindividual.css">
+    <link rel="stylesheet" href="../styles/footer.css">
+    <link rel="shortcut icon" href="images/logo.png" type="image/x-icon">
+
+      <!--- Fonte -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet"/>
+
+</head>
+
+<!--- Início do corpo da página -->
+<body>
+
+    <!--- Cabeçalho da página -->
+    <header>
+    <div class="icone">
+       <a href="../home.php">
+        <img src="../assets/images/logo+nome.png" alt="Lootsy">
+       </a>
+    </div>
+    <div class="search-bar">
+      <input type="text" placeholder="Buscar jogos..." />
+   </div>
+
+   <div class="header-buttons">
+     <a href="../login.php" class="login-button">
+      <img src="../assets/images/login-icone.png" alt="Login" class="login-icon">
+      <div class="login-text">LOGIN<br>CADASTRE-SE</div>
+     </a>
+     
+<!-- darkmode -->
+
+      <div class="trilho" id="trilho">
+          <div class="indicador"></div>
+   </div>
+
+     <div class="cart-button">
+      <img src="../assets/images/carrinho-compras.png" alt="Carrinho">
+      <div class="cart-text">CARRINHO</div>
+     </div>
+   </div>
+  </header>
+<!-- Final do cabeçalho -->
+
+  <nav class="navbar">
+    <ul class="nav-links">
+  <li><a href="../home.php">Página Inicial</a></li>    
+  <li><a href="../todososjogos.php">Jogos</a></li>
+  <li><a href="../sobrenos.php">Sobre Nós</a></li>
+    </ul>
+  </nav>
+
+    <section class="corpo">
+
+        <article class="catalogo">
+            <div class="catalogo-divisao">
+                <img src="images/the-last-of-us-ps5.png" alt="imagem-capa-the-last-of-us" class="capa-jogo">
+
+                <div class="catalogo-subdivisao">
+                    <h2>The Last Of Us Part II</h2>
+                    <p>Sony Interactive Entertainment</p>
+                    <p>Disponível para PS5</p>
+                    <h4>R$ 450,99</h4>
+                    <h3>R$ 195,99</h3>
+                     <button type="submit" id="botao">Adicionar ao carrinho</button>
+                </div>
+            </div>
+            
+        </article>
+
+        <article class="sinopse" style="background-image: url('images/fundo-the-last-of-us.png');">
+            <h2>SINOPSE</h2>
+            <p>
+                Cinco anos depois de uma jornada perigosa pelos Estados Unidos num cenário pós-pandêmico,
+                Ellie e Joel se acomodaram em Jackson, Wyoming. <br> A vida numa comunidade próspera de sobreviventes
+                lhes trouxe paz e estabilidade, apesar da ameaça constante dos infectados e de outros sobreviventes mais
+                desesperados. <br>
+                <br>
+
+                Quando um evento violento interrompe a paz, Ellie parte numa jornada incansável para fazer justiça e
+                virar a página. <br>
+                Enquanto vai atrás de cada um dos responsáveis, ela se confronta com as repercussões
+                físicas e emocionais devastadoras das próprias ações.
+            </p>
+        </article>
+
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="institucional">
+                <h2>Institucional</h2>
+                <p>Comércio eletrônico de games.<br>
+                    Estamos há 10 anos no mercado
+                    com o objetivo de ser a melhor loja online de games. <br>
+                    Enviamos para todo o país, através dos serviços de entrega dos Correios, tudo bem embalado e com
+                    segurança.</p>
+                <p>Estamos em Rio de Janeiro/RJ e temos loja física no bairro de Bonsucesso e Magé.<br>
+                    Visite-nos, tem muita coisa boa.<br>
+                    Saudações Gamers!</p>
+            </div>
+
+            <div class="contato-social">
+                <div class="logo">
+                    <img src="../assets/images/logo+nome.png" alt="Logo Lootsy">
+                    <p>AV. PARIS, 84 · (21) 3882-9797</p>
+                </div>
+                <div class="social-icons">
+                    <img src="../assets/images/redes.png" alt="Redes">
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="selos">
+                <h3>Selos de Segurança:</h3>
+                <img src="../assets/images/google-secure.png" alt="Google Site Seguro">
+                <img src="../assets/images/ssl-secure.png" alt="SSL Encryption">
+            </div>
+
+            <div class="envio">
+                <h3>Formas de Envio:</h3>
+                <img src="../assets/images/envios_correios.webp" alt="Correios SEDEX e PAC">
+            </div>
+        </div>
+
+        <div class="copyright">
+            <p>Lootsy - CNPJ: 22.222.222/0001-22 © Todos os direitos reservados. 2025© Lootsy ® é marca registrada de
+                Lootsy | Todos os direitos reservados.</p>
+            <p>Todas as fotos expostas na Lootsy.com.br são meramente ilustrativas e de nossa propriedade, estando
+                protegidas por Lei Federal de Direito Autoral.</p>
+        </div>
+    </footer>
+
+    <script src="../js/darkmode.js"></script>
+
+</body>
+<!-- Final do corpo da página -->
+
+</html>
+<!-- fim do HTML -->
