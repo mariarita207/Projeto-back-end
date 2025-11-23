@@ -115,7 +115,7 @@ body.dark #botao:hover {
 
 /* Centralização da seção */
 section {
-    height: 100vh;
+    height: 85vh;
     display: flex;
     justify-content: center;
     align-items: center;
