@@ -1,14 +1,13 @@
 <nav class="navbar-dark" style="background-color: #392666;">
     <div class="container-fluid d-flex align-items-center justify-content-between">
-        
 
-        <a href="../index.html">
-            <img 
+
+        <img 
             src="https://raw.githubusercontent.com/mariarita207/Projeto-back-end/refs/heads/main/ProjetoFaculdade/assets/images/logo%2Bnome.png"
             alt="Logo"
-            style="width: 150px; height: auto;"
-            >
-        </a>
+            style="width: 170px; height: auto;"
+        >
+
 
         <!-- DROPDOWN DE ORDENAÇÃO -->
         <div class="dropdown">
@@ -18,7 +17,7 @@
 
     <ul class="dropdown-menu dropdown-menu-end p-1 small">
         <li><a class="dropdown-item small" href="crud.php">Todos</a></li>
-        <li><a class="dropdown-item small" href="crud.php?ordem=asc">Nome A–Z</a></li>
+        <li><a class="dropdown-item small" href=".php?ordem=asc">Nome A–Z</a></li>
     </ul>
 </div>
 
