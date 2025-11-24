@@ -11,7 +11,7 @@ if (isset($_POST['create_usuario'])) {
     //se algum campo estiver vazio//
     if (empty($nome) || empty($email) || empty($data_nascimento) || empty($senha)) {
         $_SESSION['mensagem'] = "Usuário não foi cadastrado. Preencha todos os dados!";
-        header("Location: index.php");
+        header("Location: crud.php");
         exit;
     }
 
@@ -26,7 +26,7 @@ if (isset($_POST['create_usuario'])) {
     mysqli_query($conexao, $sql);
 
         $_SESSION['mensagem'] = 'Usuário criando com sucesso!';
-        header('Location: index.php');
+        header('Location: crud.php');
         exit;
     }
 
@@ -52,11 +52,11 @@ if (isset($_POST['update_usuario'])) {
 
     if (mysqli_affected_rows($conexao) > 0) {
         $_SESSION['mensagem'] = 'Usuário atualizado com sucesso!';
-        header('Location: index.php');
+        header('Location: crud.php');
         exit;
     } else {
         $_SESSION['mensagem'] = 'Usuário não foi atualizado';
-        header('Location: index.php');
+        header('Location: crud.php');
         exit;
     }
 }
@@ -71,10 +71,10 @@ if (isset($_POST['delete_usuario'])) {
 
     if (mysqli_affected_rows($conexao) > 0) {
         $_SESSION['mensagem'] = 'Usuário deletado com sucesso!';
-        header('Location: index.php');
+        header('Location: crud.php');
     } else {
         $_SESSION['mensagem'] = 'Usuário não foi deletado';
-        header('Location: index.php');
+        header('Location: crud.php');
         exit;
     }
 }
