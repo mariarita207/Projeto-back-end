@@ -1,3 +1,6 @@
+<?php 
+session_start();
+include 'conexao.php';
 ?>
 <!doctype html>
 <html lang="pt-BR">
@@ -67,7 +70,7 @@ body { overflow-x: hidden; }
 
     <ul class="sidebar-menu">
          <li><a href="#" data-target="conteudo-lista">Consultar Usuários</a></li>
-        <li><a href="#" data-target="historico-login.php">Histórico de Login</a></li>       
+        <li><a href="#" data-target="log.php">Histórico de Login</a></li>       
     </ul>
 
     <div class="sidebar-footer">
