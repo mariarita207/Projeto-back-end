@@ -2,11 +2,13 @@
     <div class="container-fluid d-flex align-items-center justify-content-between">
 
 
-        <img 
+        <a href="home.php">
+            <img 
             src="https://raw.githubusercontent.com/mariarita207/Projeto-back-end/refs/heads/main/ProjetoFaculdade/assets/images/logo%2Bnome.png"
             alt="Logo"
             style="width: 170px; height: auto;"
-        >
+            >
+        </a>
 
 
         <!-- DROPDOWN DE ORDENAÇÃO -->
