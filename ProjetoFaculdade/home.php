@@ -12,7 +12,7 @@
 
     <!--- CSS e CSS boostrap -->
     
-  <link rel="stylesheet" href="styles/home.css"/>
+  <link rel="stylesheet" href="styles/index.css"/>
   <link rel="stylesheet" href="styles/banner.css"/>
   <link rel="stylesheet" href="styles/footer.css"/>
   <link rel="shortcut icon" href="assets/images/imagem_da_logo.png" type="image/x-icon">
