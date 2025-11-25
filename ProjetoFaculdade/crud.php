@@ -69,8 +69,10 @@ body { overflow-x: hidden; }
     </div>
 
     <ul class="sidebar-menu">
-         <li><a href="#" data-target="conteudo-lista">Consultar Usuários</a></li>
-        <li><a href="#" data-target="log.php">Histórico de Login</a></li>       
+        <li><a href="#" data-target="conteudo-lista">Consultar Usuários</a></li>
+        <li><a href="#" data-target="historico-login.php">Histórico de Login</a></li>
+        <li><a href="logout.php">Sair</a></li>           
+             
     </ul>
 
     <div class="sidebar-footer">
@@ -238,7 +240,15 @@ const conteudoListaOriginal = document.getElementById('conteudo-lista').innerHTM
 
 linksSidebar.forEach(link => {
     link.addEventListener('click', function(e) {
+        
+        // Se for o botão de sair, deixa o navegador seguir o link normalmente
+        if (this.getAttribute('href') === "logout.php") {
+            return;
+        }
+
         e.preventDefault();
+
+
         const target = this.getAttribute('data-target');
 
         if (target === 'conteudo-lista') {
