@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit();
     }
 
-    $sql = "SELECT id_usuario, nome, email, senha, tipo FROM cadastro WHERE email = ?";
+    $sql = "SELECT id_usuario, nome, email, senha, tipo, cpf FROM cadastro WHERE email = ?";
     $stmt = mysqli_prepare($conexao, $sql);
     mysqli_stmt_bind_param($stmt, "s", $email);
     mysqli_stmt_execute($stmt);
@@ -23,14 +23,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         $usuario = mysqli_fetch_assoc($resultado);
 
-        // VERIFICA SE A SENHA ESTÁ HASH OU TEXTO PURO
+        // VERIFICA A SENHA
         if (password_verify($senha, $usuario['senha']) || $senha === $usuario['senha']) {
 
             $_SESSION['id_usuario'] = $usuario['id_usuario'];
             $_SESSION['nome'] = $usuario['nome'];
             $_SESSION['tipo'] = $usuario['tipo'];
 
-            // REDIRECIONA CONFORME TIPO
+            // SALVAR LOG DE LOGIN NORMAL
+            $cpf = $usuario['cpf'];                       // vem do cadastro
+            $pergunta = "Login normal (sem 2FA)";
+            $status = "sucesso";
+            $ip = $_SERVER['REMOTE_ADDR'] ?? '127.0.0.1';
+
+            $sqlLog = $conexao->prepare(
+                "INSERT INTO log (cpf, segunda_autenticacao, status, ip)
+                 VALUES (?, ?, ?, ?)"
+            );
+
+            if ($sqlLog) {
+                $sqlLog->bind_param("ssss", $cpf, $pergunta, $status, $ip);
+                $sqlLog->execute();
+                $sqlLog->close();
+            }
+            // ================================
+
+            // REDIRECIONA
             if ($usuario['tipo'] === 'master') {
                 header("Location: index.php");
                 exit();
@@ -52,6 +70,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     exit();
 }
 ?>
+
+
 
 
 
