@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 26/11/2025 às 21:21
+-- Tempo de geração: 27/11/2025 às 06:48
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -49,8 +49,11 @@ CREATE TABLE `cadastro` (
 --
 
 INSERT INTO `cadastro` (`id_usuario`, `nome`, `cpf`, `sexo`, `endereco`, `cep`, `email`, `celular`, `logins`, `senha`, `data_nascimento`, `nome_materno`, `data_cadastro`, `tipo`) VALUES
-(1, 'Administrador Do Lootsy', '13006464787', 'Masculino', 'rua engenheiro alberto rocha , 348 , vila da penha', '21220420', 'Admin12@gmail.com', '21998802757', 'Admin12@gmail.com', '12345678', '2002-01-09', 'Mãe Do Admin', '2025-11-08 14:51:12', 'master'),
-(2, 'isabella da conceição honorio', '18830593728', 'Feminino', 'Avenida Sargento de Milícias, Pavuna, Rio de Janeiro - RJ', '21532-290', 'isabellahonorio123@gmail.com', '21971184658', 'iscrvg', '$2y$10$wWLdWwz5v/aFqPXZGlXsnO5o0keEbwm03N2diy0c74mIZN9dg626q', '2003-09-25', 'luciana da conceição', '2025-11-25 23:46:40', 'comum');
+(1, 'Administrador Do Lootsy', '13006464787', 'Masculino', 'rua engenheiro alberto rocha , 348 , vila da penha', '21220420', 'Admin10@gmail.com', '21998802757', 'Admin12@gmail.com', '12345678', '2002-01-09', 'Mãe Do Admin', '2025-11-08 14:51:12', 'master'),
+(2, 'isabella da conceição honorio', '18830593728', 'Feminino', 'Avenida Sargento de Milícias, Pavuna, Rio de Janeiro - RJ', '21532-290', 'isabellahonorio123@gmail.com', '21971184658', 'iscrvg', '$2y$10$wWLdWwz5v/aFqPXZGlXsnO5o0keEbwm03N2diy0c74mIZN9dg626q', '2003-09-25', 'luciana da conceição', '2025-11-25 23:46:40', 'comum'),
+(4, 'Maria Rita', '20625167708', 'Feminino', 'Rua Carmela Dutra, Bonsucesso, Rio de Janeiro - RJ', '21043160', 'mariaritabarros83@gmail.com', '21985080932', 'Mariaa', '$2y$10$9N4v7F4q3kXeARpngdzayOX.IXSdmth1ZKQqx1qUWOZPSa1fkOzx6', '2000-07-31', 'Maiara Barros', '2025-11-26 19:45:16', 'comum'),
+(5, 'carol souza', '', 'Masculino', '', '', 'carol@gmail.com', '', '', '$2y$10$BbusjFrVJajGU.uTIANKGefoqZ8muO2tovTdriUrRYh3kf5DTJtdi', '1997-02-10', '', '2025-11-26 21:19:50', 'comum'),
+(10, 'Raissa Oliveira', '20627898808', 'Feminino', 'Rua Carmela Dutra, Bonsucesso, Rio de Janeiro - RJ', '21043160', 'raissa01@gmail.com', '21093209088', 'Raissa', '$2y$10$wpa3OqDNAT0/.8t2vHHaSOJfrc3ToY9mHTt.BReV2xN2y21h5ddh2', '2010-09-30', 'Luiza Oliveira', '2025-11-27 00:48:39', 'comum');
 
 -- --------------------------------------------------------
 
@@ -79,7 +82,14 @@ INSERT INTO `log` (`id_log`, `cpf`, `data_login`, `segunda_autenticacao`, `statu
 (6, '18830593728', '2025-11-26 06:44:35', 'Login normal (sem 2FA)', 'sucesso', '::1'),
 (7, '18830593728', '2025-11-26 06:45:02', 'Login normal (sem 2FA)', 'sucesso', '::1'),
 (8, '18830593728', '2025-11-26 06:50:17', 'Login normal (sem 2FA)', 'sucesso', '::1'),
-(9, '18830593728', '2025-11-26 06:56:07', 'Login normal (sem 2FA)', 'sucesso', '::1');
+(9, '18830593728', '2025-11-26 06:56:07', 'Login normal (sem 2FA)', 'sucesso', '::1'),
+(10, '20625167708', '2025-11-26 19:45:23', 'Login normal (sem 2FA)', 'sucesso', '::1'),
+(11, '20625167708', '2025-11-26 19:56:03', 'Login normal (sem 2FA)', 'sucesso', '::1'),
+(12, '20625167708', '2025-11-26 20:33:51', 'Login normal (sem 2FA)', 'sucesso', '::1'),
+(13, '20625167708', '2025-11-26 21:36:54', 'Login normal (sem 2FA)', 'sucesso', '::1'),
+(15, '20625167708', '2025-11-26 21:49:41', 'Login normal (sem 2FA)', 'sucesso', '::1'),
+(17, '20625167708', '2025-11-26 21:52:22', 'Login normal (sem 2FA)', 'sucesso', '::1'),
+(18, '20627898808', '2025-11-27 00:48:57', 'Login normal (sem 2FA)', 'sucesso', '::1');
 
 -- --------------------------------------------------------
 
@@ -115,9 +125,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 ALTER TABLE `cadastro`
   ADD PRIMARY KEY (`id_usuario`),
-  ADD UNIQUE KEY `cpf` (`cpf`),
-  ADD UNIQUE KEY `email` (`email`),
-  ADD UNIQUE KEY `login` (`logins`);
+  ADD UNIQUE KEY `email` (`email`);
 
 --
 -- Índices de tabela `log`
@@ -134,13 +142,13 @@ ALTER TABLE `log`
 -- AUTO_INCREMENT de tabela `cadastro`
 --
 ALTER TABLE `cadastro`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de tabela `log`
 --
 ALTER TABLE `log`
-  MODIFY `id_log` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_log` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- Restrições para tabelas despejadas
