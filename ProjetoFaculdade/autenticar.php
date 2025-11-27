@@ -144,6 +144,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles/autenticar.css">
+    <link rel="shortcut icon" href="assets/images/imagem_da_logo.png" type="image/x-icon">
 
     <script>
         // === Máscara de Data (DD/MM/AAAA) ===
@@ -171,7 +172,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 </header>
 
 <main>
-<section class="container d-flex justify-content-center">
+<section class="container">
     <div class="login">
         <div class="lootsy-body text-center">
             <img src="assets/images/segurança.png" alt="icone segurança"/>
@@ -198,7 +199,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             >
 
             <div class="button mt-3">
-                <button class="btn btn-primary w-100" type="submit">ENVIAR</button>
+                <button class="btn btn-primary w-100" id="botao" type="submit">ENVIAR</button>
             </div>
         </form>
     </div>
