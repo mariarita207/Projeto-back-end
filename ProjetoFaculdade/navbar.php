@@ -19,7 +19,7 @@
 
     <ul class="dropdown-menu dropdown-menu-end p-1 small">
         <li><a class="dropdown-item small" href="crud.php">Todos</a></li>
-        <li><a class="dropdown-item small" href=".php?ordem=asc">Nome A–Z</a></li>
+        <li><a class="dropdown-item small" href="crud.php?ordem=asc">Nome A–Z</a></li>
     </ul>
 </div>
 
