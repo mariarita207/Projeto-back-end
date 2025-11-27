@@ -50,7 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             // REDIRECIONA
             if ($usuario['tipo'] === 'master') {
-                header("Location: index.php");
+                header("Location: crud.php");
                 exit();
             } else {
                 header("Location: home.php");
