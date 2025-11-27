@@ -60,11 +60,16 @@ if (isset($_SESSION['id_usuario'])) {
           <div class="login-text">LOGIN<br>CADASTRE-SE</div>
          </a>
      <?php else: ?>
-         <div class="login-button" style="cursor: default;">
+         <div class="login-button dropdown-container">
             <img src="assets/images/login-icone.png" alt="Usuario" class="login-icon">
             <div class="login-text">
-                Olá, <?php echo htmlspecialchars($mensagemOla); ?>!<br>
-                <a href="logout.php" class="link-sair">SAIR</a>
+                Olá, <?php echo htmlspecialchars($mensagemOla); ?>!
+                <span class="seta-dropdown">▼</span>
+            </div>
+
+            <div class="dropdown-menu">
+                <a href="alterarsenha.php">Alterar Senha</a>
+                <a href="logout.php" class="sair-vermelho">Sair</a>
             </div>
          </div>
      <?php endif; ?>
