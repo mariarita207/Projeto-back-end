@@ -571,3 +571,18 @@ body.dark .btn:hover {
   display: inline-block;
 }
     }
+
+.link-sair {
+    color: #ff9999; /* Um vermelho claro para destacar no fundo roxo */
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 11px;
+    margin-top: 2px;
+    display: inline-block;
+    transition: color 0.3s;
+}
+
+.link-sair:hover {
+    color: #ff4d4d; /* Vermelho mais forte ao passar o mouse */
+    text-decoration: underline;
+}
