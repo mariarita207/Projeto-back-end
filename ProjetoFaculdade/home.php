@@ -1,4 +1,28 @@
- <!--- Início do HTML -->
+ 
+ <?php
+// INÍCIO DA SESSÃO E LÓGICA DE USUÁRIO
+if(!isset($_SESSION)) {
+    session_start();
+}
+
+$mensagemOla = "Visitante";
+$mostrarBotaoLogin = true;
+
+if (isset($_SESSION['id_usuario'])) {
+    $mostrarBotaoLogin = false; // Usuário está logado
+    
+    // Verifica se é Master ou Comum
+    if (isset($_SESSION['tipo']) && $_SESSION['tipo'] === 'master') {
+        $mensagemOla = "Admin";
+    } elseif (isset($_SESSION['nome'])) {
+        // Pega só o primeiro nome
+        $partes = explode(" ", $_SESSION['nome']);
+        $mensagemOla = $partes[0]; 
+    }
+}
+?>
+
+<!--- Início do HTML -->
  <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -30,11 +54,20 @@
       <input type="text" placeholder="Buscar jogos..." />
    </div>
 
-   <div class="header-buttons">
-     <a href="login.php" class="login-button">
-      <img src="assets/images/login-icone.png" alt="Login" class="login-icon">
-      <div class="login-text">LOGIN<br>CADASTRE-SE</div>
-     </a>
+  <?php if ($mostrarBotaoLogin): ?>
+         <a href="login.html" class="login-button">
+          <img src="assets/images/login-icone.png" alt="Login" class="login-icon">
+          <div class="login-text">LOGIN<br>CADASTRE-SE</div>
+         </a>
+     <?php else: ?>
+         <div class="login-button" style="cursor: default;">
+            <img src="assets/images/login-icone.png" alt="Usuario" class="login-icon">
+            <div class="login-text">
+                Olá, <?php echo htmlspecialchars($mensagemOla); ?>!<br>
+                <a href="logout.php" class="link-sair">SAIR</a>
+            </div>
+         </div>
+     <?php endif; ?>
      
      
      <div class="trilho" id="trilho">
