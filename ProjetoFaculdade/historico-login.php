@@ -91,13 +91,15 @@ body { overflow-x: hidden; }
             <i class="bi bi-search"></i>
             <input 
                 type="text"
+                id="busca"
                 name="busca"
                 placeholder="Pesquisar por nome ou CPF..."
                 value="<?= $_GET['busca'] ?? '' ?>"
             >
         </form>
 
-    
+
+
         <div class="table-responsive">
             <table class="table table-bordered table-striped">
                 <thead class="table-dark">
@@ -111,7 +113,7 @@ body { overflow-x: hidden; }
                         <th>Data/Hora</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="tabelaLogs">
                 <?php while ($row = $logs->fetch_assoc()): ?>
                     <tr>
                         <td><?= $row['id_log'] ?></td>
@@ -136,6 +138,54 @@ body { overflow-x: hidden; }
     </div>
 </div>
 
+<script>
+function updateQueryParam(key, value) {
+  const url = new URL(window.location.href);
+  if (value === '' || value === null) {
+    url.searchParams.delete(key);
+  } else {
+    url.searchParams.set(key, value);
+  }
+  return url.toString();
+}
+
+document.addEventListener('click', function (e) {
+  const el = e.target.closest && e.target.closest('[data-ordem]');
+  if (!el) return;
+
+  e.preventDefault();
+  const ordem = el.getAttribute('data-ordem') || '';
+
+  if (document.getElementById('conteudo-lista')) {
+    const novaUrl = updateQueryParam('ordem', ordem);
+    window.location.href = novaUrl;
+    return;
+  }
+
+  const conteudoPrincipal = document.getElementById('conteudo-principal');
+  const conteudoVisivel = conteudoPrincipal && conteudoPrincipal.innerHTML.trim();
+
+  if (conteudoVisivel && conteudoVisivel.includes('Logs de Autenticação')) {
+    const endpoint = 'historico-login.php';
+    const params = new URLSearchParams();
+    if (ordem) params.set('ordem', ordem);
+
+    fetch(endpoint + '?' + params.toString())
+      .then(r => r.text())
+      .then(html => {
+        conteudoPrincipal.innerHTML = html;
+      })
+      .catch(err => {
+        console.error(err);
+        alert('Erro ao atualizar o histórico.');
+      });
+    return;
+  }
+
+  window.location.href = updateQueryParam('ordem', ordem);
+});
+</script>
+
+
 </body>
 </html>
-
