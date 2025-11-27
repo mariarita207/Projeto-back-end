@@ -26,7 +26,7 @@ body { overflow-x: hidden; }
     top: 55px;
     left: 0;
     overflow-y: auto;
-    padding-top: 20px;
+    padding-top: 50px;
     color: white;
     display: flex;
     flex-direction: column;
@@ -268,5 +268,48 @@ linksSidebar.forEach(link => {
 });
 </script>
 
+<script>
+/*
+  Delegation: escuta INPUTs com id="busca" mesmo que o elemento
+  seja inserido dinamicamente via innerHTML (fetch).
+*/
+document.addEventListener('input', function (e) {
+  if (!e.target) return;
+  if (e.target.id !== 'busca') return; // só responde ao campo #busca
+
+  const termo = e.target.value || '';
+
+  // Busca o HTML do histórico (mesmo endpoint que você já usa para incluir a página)
+  fetch('historico-login.php?busca=' + encodeURIComponent(termo))
+    .then(resp => {
+      if (!resp.ok) throw new Error('Erro na requisição');
+      return resp.text();
+    })
+    .then(html => {
+      // Pega só a parte #tabelaLogs do HTML retornado
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(html, 'text/html');
+      const novasTbody = doc.querySelector('#tabelaLogs');
+
+      if (novasTbody) {
+        const tbodyAtual = document.querySelector('#tabelaLogs');
+        if (tbodyAtual) {
+          tbodyAtual.innerHTML = novasTbody.innerHTML;
+        } else {
+          // caso a tabela ainda não exista (por algum motivo), tenta recarregar o conteúdo completo
+          const conteudoPrincipal = document.getElementById('conteudo-principal');
+          if (conteudoPrincipal) conteudoPrincipal.innerHTML = html;
+        }
+      } else {
+        console.warn('Resposta veio sem #tabelaLogs. Conteúdo retornado:', html);
+      }
+    })
+    .catch(err => {
+      console.error('Erro no fetch da busca:', err);
+    });
+});
+</script>
+
 </body>
 </html>
+
