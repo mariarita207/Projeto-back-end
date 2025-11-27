@@ -23,7 +23,7 @@ body { overflow-x: hidden; }
     height: calc(100vh - 70px);
     background-color: #392666;
     position: fixed;
-    top: 55px;
+    top: 75px;
     left: 0;
     overflow-y: auto;
     padding-top: 50px;
@@ -236,23 +236,29 @@ document.getElementById("campoBusca")?.addEventListener("keyup", function () {
 // SIDEBAR - CONTEÚDO DINÂMICO
 const linksSidebar = document.querySelectorAll('.sidebar-menu li a');
 const conteudoPrincipal = document.getElementById('conteudo-principal');
-const conteudoListaOriginal = document.getElementById('conteudo-lista').innerHTML;
+const conteudoListaOriginal = document.getElementById('conteudo-lista').outerHTML;
 
 linksSidebar.forEach(link => {
     link.addEventListener('click', function(e) {
-        
-        // Se for o botão de sair, deixa o navegador seguir o link normalmente
+
         if (this.getAttribute('href') === "logout.php") {
             return;
         }
 
         e.preventDefault();
-
-
         const target = this.getAttribute('data-target');
 
         if (target === 'conteudo-lista') {
             conteudoPrincipal.innerHTML = conteudoListaOriginal;
+
+            // 👇 Reativando o campo de busca do CRUD
+            setTimeout(() => {
+                const campoBusca = document.getElementById("campoBusca");
+                if (campoBusca) {
+                    campoBusca.addEventListener("keyup", buscarUsuarios);
+                }
+            }, 50);
+
         } else {
             fetch(target)
                 .then(res => res.text())
@@ -266,6 +272,45 @@ linksSidebar.forEach(link => {
         }
     });
 });
+
+// FUNÇÃO DE BUSCA DO CRUD (a mesma que você já tinha)
+function buscarUsuarios() {
+    let termo = this.value;
+    fetch("buscar.php?termo=" + termo)
+        .then(response => response.json())
+        .then(dados => {
+            let html = "";
+            if (dados.length === 0) {
+                html = "<tr><td colspan='5' class='text-center'>Nenhum usuário encontrado</td></tr>";
+            } else {
+                dados.forEach(u => {
+                    html += `
+                        <tr>
+                            <td class="text-center">${u.id_usuario}</td>
+                            <td class="text-center">${u.nome}</td>
+                            <td class="text-center">${u.email}</td>
+                            <td class="text-center">${new Date(u.data_nascimento).toLocaleDateString("pt-BR")}</td>
+                            <td class="text-center">
+                                <a href="usuario-view.php?id_usuario=${u.id_usuario}" class="btn btn-secondary btn-sm">
+                                    <span class="bi-eye-fill"></span>&nbsp;Visualizar
+                                </a>
+                                <a href="usuario-edit.php?id_usuario=${u.id_usuario}" class="btn btn-success btn-sm">
+                                    <span class="bi-pencil-fill"></span>&nbsp;Editar
+                                </a>
+                                <form action="acoes.php" method="POST" class="d-inline">
+                                    <button onclick="return confirm('Tem certeza que deseja excluir?')" 
+                                        type="submit" name="delete_usuario" value="${u.id_usuario}" 
+                                        class="btn btn-danger btn-sm">
+                                        <span class="bi-trash3-fill"></span>&nbsp;Excluir
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>`;
+                });
+            }
+            document.getElementById("resultado").innerHTML = html;
+        });
+}
 </script>
 
 <script>
@@ -310,6 +355,53 @@ document.addEventListener('input', function (e) {
 });
 </script>
 
+<script>
+function updateQueryParam(key, value) {
+  const url = new URL(window.location.href);
+  if (value === '' || value === null) {
+    url.searchParams.delete(key);
+  } else {
+    url.searchParams.set(key, value);
+  }
+  return url.toString();
+}
+
+document.addEventListener('click', function (e) {
+  const el = e.target.closest && e.target.closest('[data-ordem]');
+  if (!el) return;
+
+  e.preventDefault();
+  const ordem = el.getAttribute('data-ordem') || '';
+
+  if (document.getElementById('conteudo-lista')) {
+    const novaUrl = updateQueryParam('ordem', ordem);
+    window.location.href = novaUrl;
+    return;
+  }
+
+  const conteudoPrincipal = document.getElementById('conteudo-principal');
+  const conteudoVisivel = conteudoPrincipal && conteudoPrincipal.innerHTML.trim();
+
+  if (conteudoVisivel && conteudoVisivel.includes('Logs de Autenticação')) {
+    const endpoint = 'historico-login.php';
+    const params = new URLSearchParams();
+    if (ordem) params.set('ordem', ordem);
+
+    fetch(endpoint + '?' + params.toString())
+      .then(r => r.text())
+      .then(html => {
+        conteudoPrincipal.innerHTML = html;
+      })
+      .catch(err => {
+        console.error(err);
+        alert('Erro ao atualizar o histórico.');
+      });
+    return;
+  }
+
+  window.location.href = updateQueryParam('ordem', ordem);
+});
+</script>
+
 </body>
 </html>
-
