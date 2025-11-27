@@ -20,7 +20,7 @@ body { overflow-x: hidden; }
 /* === MENU LATERAL === */
 .sidebar {
     width: 240px;
-    height: calc(100vh - 70px);
+    height: calc(100vh - 75px);
     background-color: #392666;
     position: fixed;
     top: 75px;
@@ -51,7 +51,12 @@ body { overflow-x: hidden; }
 }
 
 /* === CONTEÚDO PRINCIPAL === */
-.main-content { margin-left: 260px; padding: 20px; }
+.main-content {
+    margin-left: 260px;
+    padding: 20px;
+    height: calc(100vh - 75px); /* mesma altura da sidebar */
+    overflow-y: auto; /* permite rolar dentro da área */
+}
 .table-responsive { overflow-x: auto !important; white-space: nowrap; }
 .card { max-width: 1000px; margin: auto; }
 </style>
