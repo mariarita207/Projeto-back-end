@@ -82,7 +82,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 <header class="cabecalho">
     <div class="icone">
-        <a href="../home.php">
+        <a href="home.php">
             <img src="assets/images/logo+nome.png" alt="Logo Lootsy" class="imagem-cabecalho"/>
         </a>
     </div>
