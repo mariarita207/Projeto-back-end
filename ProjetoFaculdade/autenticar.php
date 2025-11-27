@@ -82,21 +82,27 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     // ======== SUCESSO ========
     if ($is_correct) {
-        // Limpa o controle do 2FA
-        unset($_SESSION["perguntas_restantes"], $_SESSION["tentativas"], $_SESSION["pergunta_atual"], $_SESSION["cpf_2fa"]);
-
-        // SALVA A SESSÃO FINAL (Requisito de Perfil e Menu) 
+        // Limpa variáveis de controle do 2FA
+        unset($_SESSION["perguntas_restantes"], $_SESSION["tentativas"], $_SESSION["pergunta_atual"]);
+        
+        // Salva os dados que a Home precisa
         $_SESSION['id_usuario'] = $dados['id_usuario'];
         $_SESSION['nome']       = $dados['nome'];
-        $_SESSION['tipo']       = $dados['tipo']; // Define se é Master ou Comum
+        $_SESSION['tipo']       = $dados['tipo'];
+        
+        // Remove o CPF temporário
+        unset($_SESSION["cpf_2fa"]); 
 
-        // Redireciona baseado no perfil (Requisito de telas) [cite: 24, 26]
+        // --- AQUI ENTRA O SEU CÓDIGO DE REDIRECIONAMENTO ---
+        // Note que usamos $dados['tipo'] porque é assim que buscamos no banco neste arquivo
         if ($dados['tipo'] === 'master') {
-            header("Location: index.php"); // Tela do Master (ou home.php se for a mesma)
+            header("Location: crud.php");
+            exit();
         } else {
-            header("Location: home.php"); // Tela do Comum
+            header("Location: home.php");
+            exit();
         }
-        exit();
+        // ----------------------------------------------------
     }
 
     // ======== FALHA ========
@@ -135,8 +141,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <meta charset="UTF-8">
     <title>Autenticação de 2 Fatores</title>
 
-    <link rel="stylesheet" href="styles/autenticar.css">
+    
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/autenticar.css">
 
     <script>
         // === Máscara de Data (DD/MM/AAAA) ===
@@ -152,10 +159,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <body>
 <header class="cabecalho">
     <div class="icone">
-        <a href="../home.php">
+        <a href="home.php">
             <img src="assets/images/logo+nome.png" class="imagem-cabecalho">
         </a>
     </div>
+
+<div class="trilho" id="trilho">
+          <div class="indicador"></div>
+   </div>
+
 </header>
 
 <main>
@@ -192,6 +204,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     </div>
 </section>
 </main>
+
+<script src="js/darkmode.js"></script>
+
 </body>
 </html>
 
