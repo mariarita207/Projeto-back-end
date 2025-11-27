@@ -64,14 +64,22 @@ if (isset($_POST['update_usuario'])) {
 //Para a página de excluir usuário//
 if (isset($_POST['delete_usuario'])) {
     $usuario_id = mysqli_real_escape_string($conexao, $_POST['delete_usuario']);
-    
-    $sql ="DELETE  FROM cadastro WHERE id_usuario = '$usuario_id'";
 
-    mysqli_query($conexao, $sql);
+    // Pega o CPF do usuário antes de excluir
+    $queryCPF = mysqli_query($conexao, "SELECT cpf FROM cadastro WHERE id_usuario = '$usuario_id'");
+    $dados = mysqli_fetch_assoc($queryCPF);
+    $cpf = $dados['cpf'];
+
+    // Apaga os logs que usam esse CPF
+    mysqli_query($conexao, "DELETE FROM log WHERE cpf = '$cpf'");
+
+    // Agora sim, apaga o usuário
+    mysqli_query($conexao, "DELETE FROM cadastro WHERE id_usuario = '$usuario_id'");
 
     if (mysqli_affected_rows($conexao) > 0) {
         $_SESSION['mensagem'] = 'Usuário deletado com sucesso!';
         header('Location: crud.php');
+        exit;
     } else {
         $_SESSION['mensagem'] = 'Usuário não foi deletado';
         header('Location: crud.php');
