@@ -97,25 +97,7 @@ body { overflow-x: hidden; }
             >
         </form>
 
-        <!-- FILTRO DE ORDENAÇÃO -->
-        <form method="GET" class="d-flex justify-content-between align-items-center mb-3 flex-wrap gap-2">
-            <!-- mantém a busca ao mudar a ordem -->
-            <input type="hidden" name="busca" value="<?= $_GET['busca'] ?? '' ?>">
-
-            <div>
-                <label class="fw-semibold me-2">Ordenar por nome:</label>
-                <select 
-                    name="ordem" 
-                    class="form-select d-inline-block w-auto"
-                    onchange="this.form.submit()"
-                >
-                    <option value="">Mais recentes</option>
-                    <option value="asc"  <?= (($_GET['ordem'] ?? '') === 'asc')  ? 'selected' : '' ?>>A → Z</option>
-                    <option value="desc" <?= (($_GET['ordem'] ?? '') === 'desc') ? 'selected' : '' ?>>Z → A</option>
-                </select>
-            </div>
-        </form>
-
+    
         <div class="table-responsive">
             <table class="table table-bordered table-striped">
                 <thead class="table-dark">
@@ -156,3 +138,4 @@ body { overflow-x: hidden; }
 
 </body>
 </html>
+
